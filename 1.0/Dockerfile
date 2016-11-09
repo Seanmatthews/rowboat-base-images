@@ -15,7 +15,7 @@ RUN [ "cross-build-start" ]
 RUN echo "deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty main restricted universe \
     deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-updates main restricted universe \ 
     deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-backports main restricted universe \
-    deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-security main restricted universe \ 
+    deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-security main restricted universe" \ 
 > /etc/apt/sources.list
 
 # Packages
