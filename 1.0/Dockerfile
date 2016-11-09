@@ -12,6 +12,13 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
+RUN cat >/etc/apt/sources.list << EOL \
+  deb mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe multiverse \
+  deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse \
+  deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse \
+  deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-security main restricted universe multiverse \
+EOL
+
 # Packages
 RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
     git \
