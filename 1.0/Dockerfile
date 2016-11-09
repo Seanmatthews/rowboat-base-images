@@ -12,12 +12,15 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
-RUN cat >/etc/apt/sources.list << EOL
-  deb mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe multiverse
-  deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse
-  deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse
-  deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-security main restricted universe multiverse
-EOL
+RUN echo "deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty main restricted universe \
+    deb-src http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty main restricted universe \
+    deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-updates main restricted universe \ 
+    deb-src http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-updates main restricted universe \
+    deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-backports main restricted universe \
+    deb-src http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-backports main restricted universe \
+    deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-security main restricted universe \ 
+    deb-src http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-security main restricted universe" \
+> /etc/apt/sources.list
 
 # Packages
 RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
