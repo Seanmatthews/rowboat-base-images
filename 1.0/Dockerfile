@@ -4,6 +4,8 @@ ENV QEMU_EXECVE 1
 # Force armv6l
 # ENV QEMU_CPU arm1176
 
+ENV APT_URL http://mirror.internode.on.net/pub/ubuntu-ports/
+
 COPY dockerutils/* /usr/bin/
 #COPY qemu-arm-static /usr/bin
 #COPY cross-build-start /usr/bin
@@ -12,10 +14,14 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
-RUN echo "deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty main restricted universe \
-    deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-updates main restricted universe \ 
-    deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-backports main restricted universe \
-    deb http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/ trusty-security main restricted universe" \ 
+RUN echo "deb ${APT_URL} trusty main restricted universe \
+    deb ${APT_URL} trusty-updates main restricted universe \ 
+    deb ${APT_URL} trusty-backports main restricted universe \
+    deb ${APT_URL} trusty-security main restricted universe \ 
+    deb-src ${APT_URL} trusty main restricted universe \
+    deb-src ${APT_URL} trusty-updates main restricted universe \ 
+    deb-src ${APT_URL} trusty-backports main restricted universe \
+    deb-src ${APT_URL} trusty-security main restricted universe" \ 
 > /etc/apt/sources.list
 
 # Packages
