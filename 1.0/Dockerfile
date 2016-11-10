@@ -4,12 +4,12 @@ ENV QEMU_EXECVE 1
 # Force armv6l
 # ENV QEMU_CPU arm1176
 
-ENV APT_URL http://ports.ubuntu.com/ubuntu-ports/
 
 COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
+ENV APT_URL "http://ports.ubuntu.com/ubuntu-ports/"
 
 RUN echo $'deb ${APT_URL} trusty main restricted universe\n\
     deb ${APT_URL} trusty-updates main restricted universe\n\ 
