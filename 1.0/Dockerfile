@@ -31,6 +31,7 @@ RUN apt-get install -y --no-install-recommends \
     autoconf \
     automake \
     libass-dev \
+    libavdevice-dev \
     libfreetype6-dev \
     libsdl1.2-dev \
     libtheora-dev \
