@@ -4,7 +4,7 @@ ENV QEMU_EXECVE 1
 # Force armv6l
 # ENV QEMU_CPU arm1176
 
-ENV APT_URL https://launchpad.net/ubuntu/+mirror/mirror.vorboss.net-archive
+ENV APT_URL http://mirror.vorboss.net/ubuntu-archive/
 
 COPY dockerutils/* /usr/bin/
 
