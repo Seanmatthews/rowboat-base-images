@@ -6,10 +6,10 @@ ENV QEMU_EXECVE 1
 
 
 COPY dockerutils/* /usr/bin/
+COPY sources.sh /tmp/
 
 RUN [ "cross-build-start" ]
 
-COPY sources.sh /tmp/
 RUN /tmp/sources.sh
 RUN more /etc/apt/sources.list
 RUN exit 1
