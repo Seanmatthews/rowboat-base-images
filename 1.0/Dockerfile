@@ -10,7 +10,7 @@ COPY sources.sh /tmp/
 
 RUN [ "cross-build-start" ]
 
-RUN /tmp/sources.sh
+CMD["/tmp/sources.sh"]
 RUN more /etc/apt/sources.list
 RUN exit 1
 

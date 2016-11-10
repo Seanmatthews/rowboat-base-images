@@ -1,6 +1,6 @@
 APT_URL="http://ports.ubuntu.com/ubuntu-ports/"
 
-cat > /etc/apt/sources.list <<- EOM
+cat > ./sources.list <<- EOM
 deb ${APT_URL} trusty main restricted universe
 deb ${APT_URL} trusty-updates main restricted universe
 deb ${APT_URL} trusty-backports main restricted universe
