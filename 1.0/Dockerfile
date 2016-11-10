@@ -14,7 +14,7 @@ RUN /tmp/sources.sh
 RUN more /etc/apt/sources.list
 
 # Problem apt-gets
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libgsm1-dev \
     libboost-coroutine-dev \
     libboost-log-dev
