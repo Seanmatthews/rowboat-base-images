@@ -14,7 +14,7 @@ RUN [ "cross-build-start" ]
 #RUN ping -c 5 91.189.88.150
 
 # Problem apt-gets
-RUN apt-get clean && apt-get update && apt-get install -y --install-suggests --no-install-recommends \
+RUN apt-get clean && apt-get update && apt-get install -y \
     libgsm1-dev \
     libboost-coroutine-dev \
     libboost-log-dev
