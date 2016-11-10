@@ -11,7 +11,9 @@ COPY dockerutils/* /usr/bin/
 RUN [ "cross-build-start" ]
 
 # Packages
-RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get clean && apt-get update
+RUN ping -c 5 91.189.88.150
+RUN apt-get install -y --no-install-recommends \
     git \
     emacs \
     build-essential \
@@ -22,7 +24,7 @@ RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommend
     cmake \
     libusb-1.0-0-dev 
 
-RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get install -y --no-install-recommends \
     autoconf \
     automake \
     libass-dev \
