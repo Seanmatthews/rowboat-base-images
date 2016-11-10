@@ -9,7 +9,7 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
-RUN sources.sh
+RUN /sources.sh
 RUN more /etc/apt/sources.list
 
 
