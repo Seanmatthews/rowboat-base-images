@@ -11,16 +11,16 @@ RUN [ "cross-build-start" ]
 
 ENV APT_URL "http://ports.ubuntu.com/ubuntu-ports/"
 
-RUN echo $'deb ${APT_URL} trusty main restricted universe\n\
-    deb ${APT_URL} trusty-updates main restricted universe\n\ 
-    deb ${APT_URL} trusty-backports main restricted universe\n\
-    deb ${APT_URL} trusty-security main restricted universe\n\ 
-    deb-src ${APT_URL} trusty main restricted universe\n\
-    deb-src ${APT_URL} trusty-updates main restricted universe\n\ 
-    deb-src ${APT_URL} trusty-backports main restricted universe\n\
-    deb-src ${APT_URL} trusty-security main restricted universe'\ 
-> /etc/apt/sources.list
+ENV SRCS 'deb ${APT_URL} trusty main restricted universe\n\
+deb ${APT_URL} trusty-updates main restricted universe\n\ 
+deb ${APT_URL} trusty-backports main restricted universe\n\
+deb ${APT_URL} trusty-security main restricted universe\n\ 
+deb-src ${APT_URL} trusty main restricted universe\n\
+deb-src ${APT_URL} trusty-updates main restricted universe\n\ 
+deb-src ${APT_URL} trusty-backports main restricted universe\n\
+deb-src ${APT_URL} trusty-security main restricted universe' 
 
+RUN echo ${SRCS} > /etc/apt/sources.list
 RUN more /etc/apt/sources.list
 
 
