@@ -10,16 +10,6 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
-#RUN echo "deb ${APT_URL} trusty main restricted universe \
-#    deb ${APT_URL} trusty-updates main restricted universe \ 
-#    deb ${APT_URL} trusty-backports main restricted universe \
-#    deb ${APT_URL} trusty-security main restricted universe \ 
-#    deb-src ${APT_URL} trusty main restricted universe \
-#    deb-src ${APT_URL} trusty-updates main restricted universe \ 
-#    deb-src ${APT_URL} trusty-backports main restricted universe \
-#    deb-src ${APT_URL} trusty-security main restricted universe" \ 
-#> /etc/apt/sources.list
-
 # Packages
 RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
     git \
@@ -49,6 +39,7 @@ RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommend
     pkg-config \
     texinfo \
     zlib1g-dev \
+    libcurl4-openssl-dev \
     libcurlpp-dev \
     libcurlpp0 \
     libjsoncpp-dev
