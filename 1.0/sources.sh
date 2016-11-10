@@ -1,3 +1,5 @@
+#!/bin/bash
+
 APT_URL="http://ports.ubuntu.com/ubuntu-ports/"
 
 cat > ./sources.list <<- EOM
