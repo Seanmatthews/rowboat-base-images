@@ -24,6 +24,12 @@ RUN apt-get install -y --no-install-recommends \
     cmake \
     libusb-1.0-0-dev 
 
+# Problem apt-gets
+RUN apt-get install -y --no-install-recommends \
+    libgsm1-dev \
+    libboost-coroutine-dev \
+    libboost-log-dev
+
 RUN apt-get install -y --no-install-recommends \
     autoconf \
     automake \
