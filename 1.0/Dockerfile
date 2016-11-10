@@ -10,6 +10,12 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
+# Problem apt-gets
+RUN apt-get clean && apt-get update && apt-get install -y \
+    libgsm1-dev \
+    libboost-coroutine-dev \
+    libboost-log-dev
+
 RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
     git \
     emacs \
@@ -20,12 +26,6 @@ RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommend
     i2c-tools \
     cmake \
     libusb-1.0-0-dev 
-
-# Problem apt-gets
-RUN apt-get clean && apt-get update && apt-get install -y \
-    libgsm1-dev \
-    libboost-coroutine-dev \
-    libboost-log-dev
 
 RUN apt-get clean && apt-get update && pt-get install -y --no-install-recommends \
     autoconf \
