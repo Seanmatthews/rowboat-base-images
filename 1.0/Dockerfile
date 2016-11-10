@@ -4,11 +4,21 @@ ENV QEMU_EXECVE 1
 # Force armv6l
 # ENV QEMU_CPU arm1176
 
-ENV APT_URL http://mirror.internode.on.net/pub/ubuntu-ports/
+ENV APT_URL https://launchpad.net/ubuntu/+mirror/mirror.vorboss.net-archive
 
 COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
+
+RUN echo "deb ${APT_URL} trusty main restricted universe \
+    deb ${APT_URL} trusty-updates main restricted universe \ 
+    deb ${APT_URL} trusty-backports main restricted universe \
+    deb ${APT_URL} trusty-security main restricted universe \ 
+    deb-src ${APT_URL} trusty main restricted universe \
+    deb-src ${APT_URL} trusty-updates main restricted universe \ 
+    deb-src ${APT_URL} trusty-backports main restricted universe \
+    deb-src ${APT_URL} trusty-security main restricted universe" \ 
+> /etc/apt/sources.list
 
 # Problem apt-gets
 RUN apt-get update && apt-get install -y \
