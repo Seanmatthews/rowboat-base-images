@@ -10,7 +10,7 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
     git \
     emacs \
     build-essential \
@@ -27,7 +27,7 @@ RUN apt-get clean && apt-get update && apt-get install -y \
     libboost-coroutine-dev \
     libboost-log-dev
 
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get clean && apt-get update && pt-get install -y --no-install-recommends \
     autoconf \
     automake \
     libass-dev \
