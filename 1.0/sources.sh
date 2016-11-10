@@ -1,8 +1,8 @@
 #!/bin/bash
 
-APT_URL="http://ports.ubuntu.com/ubuntu-ports/"
+APT_URL="http://mirrors.mit.edu/ubuntu-ports/"
 
-cat > ./sources.list <<- EOM
+cat > /etc/apt/sources.list <<- EOM
 deb ${APT_URL} trusty main restricted universe
 deb ${APT_URL} trusty-updates main restricted universe
 deb ${APT_URL} trusty-backports main restricted universe
