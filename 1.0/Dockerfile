@@ -10,15 +10,6 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
-# Packages
-#RUN ping -c 5 91.189.88.150
-
-# Problem apt-gets
-RUN apt-get clean && apt-get update && apt-get install -y \
-    libgsm1-dev \
-    libboost-coroutine-dev \
-    libboost-log-dev
-
 RUN apt-get install -y --no-install-recommends \
     git \
     emacs \
@@ -30,6 +21,11 @@ RUN apt-get install -y --no-install-recommends \
     cmake \
     libusb-1.0-0-dev 
 
+# Problem apt-gets
+RUN apt-get clean && apt-get update && apt-get install -y \
+    libgsm1-dev \
+    libboost-coroutine-dev \
+    libboost-log-dev
 
 RUN apt-get install -y --no-install-recommends \
     autoconf \
