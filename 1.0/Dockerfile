@@ -4,7 +4,7 @@ ENV QEMU_EXECVE 1
 # Force armv6l
 # ENV QEMU_CPU arm1176
 
-ENV APT_URL http://jp.archive.ubuntu.com/ubuntu-ports/
+ENV APT_URL http://ports.ubuntu.com/ubuntu-ports/
 
 COPY dockerutils/* /usr/bin/
 
