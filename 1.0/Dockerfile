@@ -10,6 +10,8 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
+RUN more /etc/apt/sources.list
+
 RUN echo "deb ${APT_URL} trusty main restricted universe \
     deb ${APT_URL} trusty-updates main restricted universe \ 
     deb ${APT_URL} trusty-backports main restricted universe \
