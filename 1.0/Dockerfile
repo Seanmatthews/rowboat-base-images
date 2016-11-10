@@ -11,11 +11,10 @@ COPY dockerutils/* /usr/bin/
 RUN [ "cross-build-start" ]
 
 # Packages
-RUN apt-get clean && apt-get update
-RUN ping -c 5 91.189.88.150
+#RUN ping -c 5 91.189.88.150
 
 # Problem apt-gets
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
     libgsm1-dev \
     libboost-coroutine-dev \
     libboost-log-dev
