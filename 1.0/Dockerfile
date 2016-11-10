@@ -7,22 +7,18 @@ ENV QEMU_EXECVE 1
 ENV APT_URL http://mirror.internode.on.net/pub/ubuntu-ports/
 
 COPY dockerutils/* /usr/bin/
-#COPY qemu-arm-static /usr/bin
-#COPY cross-build-start /usr/bin
-#COPY cross-build-end /usr/bin
-#COPY sh-shim /usr/bin
 
 RUN [ "cross-build-start" ]
 
-RUN echo "deb ${APT_URL} trusty main restricted universe \
-    deb ${APT_URL} trusty-updates main restricted universe \ 
-    deb ${APT_URL} trusty-backports main restricted universe \
-    deb ${APT_URL} trusty-security main restricted universe \ 
-    deb-src ${APT_URL} trusty main restricted universe \
-    deb-src ${APT_URL} trusty-updates main restricted universe \ 
-    deb-src ${APT_URL} trusty-backports main restricted universe \
-    deb-src ${APT_URL} trusty-security main restricted universe" \ 
-> /etc/apt/sources.list
+#RUN echo "deb ${APT_URL} trusty main restricted universe \
+#    deb ${APT_URL} trusty-updates main restricted universe \ 
+#    deb ${APT_URL} trusty-backports main restricted universe \
+#    deb ${APT_URL} trusty-security main restricted universe \ 
+#    deb-src ${APT_URL} trusty main restricted universe \
+#    deb-src ${APT_URL} trusty-updates main restricted universe \ 
+#    deb-src ${APT_URL} trusty-backports main restricted universe \
+#    deb-src ${APT_URL} trusty-security main restricted universe" \ 
+#> /etc/apt/sources.list
 
 # Packages
 RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
