@@ -11,12 +11,12 @@ COPY dockerutils/* /usr/bin/
 RUN [ "cross-build-start" ]
 
 # Problem apt-gets
-RUN apt-get clean && apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     libgsm1-dev \
     libboost-coroutine-dev \
     libboost-log-dev
 
-RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get install -y --no-install-recommends \
     git \
     emacs \
     build-essential \
@@ -25,9 +25,7 @@ RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommend
     python-smbus \
     i2c-tools \
     cmake \
-    libusb-1.0-0-dev 
-
-RUN apt-get clean && apt-get update && pt-get install -y --no-install-recommends \
+    libusb-1.0-0-dev \
     autoconf \
     automake \
     libass-dev \
