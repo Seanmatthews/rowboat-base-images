@@ -12,7 +12,6 @@ RUN [ "cross-build-start" ]
 
 RUN /tmp/sources.sh
 RUN more /etc/apt/sources.list
-RUN exit 1
 
 # Problem apt-gets
 RUN apt-get update && apt-get install -y \
