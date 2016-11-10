@@ -10,17 +10,19 @@ COPY dockerutils/* /usr/bin/
 
 RUN [ "cross-build-start" ]
 
+
+RUN echo $'deb ${APT_URL} trusty main restricted universe\n\
+    deb ${APT_URL} trusty-updates main restricted universe\n\ 
+    deb ${APT_URL} trusty-backports main restricted universe\n\
+    deb ${APT_URL} trusty-security main restricted universe\n\ 
+    deb-src ${APT_URL} trusty main restricted universe\n\
+    deb-src ${APT_URL} trusty-updates main restricted universe\n\ 
+    deb-src ${APT_URL} trusty-backports main restricted universe\n\
+    deb-src ${APT_URL} trusty-security main restricted universe'\ 
+> /etc/apt/sources.list
+
 RUN more /etc/apt/sources.list
 
-RUN echo "deb ${APT_URL} trusty main restricted universe \
-    deb ${APT_URL} trusty-updates main restricted universe \ 
-    deb ${APT_URL} trusty-backports main restricted universe \
-    deb ${APT_URL} trusty-security main restricted universe \ 
-    deb-src ${APT_URL} trusty main restricted universe \
-    deb-src ${APT_URL} trusty-updates main restricted universe \ 
-    deb-src ${APT_URL} trusty-backports main restricted universe \
-    deb-src ${APT_URL} trusty-security main restricted universe" \ 
-> /etc/apt/sources.list
 
 # Problem apt-gets
 RUN apt-get update && apt-get install -y \
