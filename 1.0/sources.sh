@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_URL="http://mirrors.mit.edu/ubuntu-ports/"
+APT_URL="http://mirrors.portafixe.com/ubuntu/archive/"
 
 cat > /etc/apt/sources.list <<- EOM
 deb ${APT_URL} trusty main restricted universe
