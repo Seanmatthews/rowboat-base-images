@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_URL="http://mirrors.portafixe.com/ubuntu/archive/"
+APT_URL="http://dafi.inf.um.es/ubuntu/"
 
 cat > /etc/apt/sources.list <<- EOM
 deb ${APT_URL} trusty main restricted universe
