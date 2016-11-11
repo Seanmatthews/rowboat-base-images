@@ -98,4 +98,6 @@ RUN bash -c "source /root/.bashrc && rosdep update"
 
 RUN [ "cross-build-end" ]
 
+ENTRYPOINT [ "/usr/bin/qemu-arm-static", "/usr/bin/env", "QEMU_EXECVE=1" ]
+CMD [ "/bin/bash" ]
 
