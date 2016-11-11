@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_URL="http://dafi.inf.um.es/ubuntu/"
+APT_URL="http://ftp.tu-chemnitz.de/pub/linux/ubuntu-ports/"
 
 cat > /etc/apt/sources.list <<- EOM
 deb ${APT_URL} trusty main restricted universe
