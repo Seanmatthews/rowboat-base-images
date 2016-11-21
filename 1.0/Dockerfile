@@ -71,6 +71,7 @@ RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommend
      ros-indigo-diagnostics \
      ros-indigo-diagnostic-aggregator \
      ros-indigo-image-transport \
+     ros-indigo-image-transport-plugins \
      ros-indigo-teleop-twist-joy \
      ros-indigo-camera-info-manager \
      ros-indigo-razor-imu-9dof \
