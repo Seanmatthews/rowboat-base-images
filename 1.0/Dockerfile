@@ -61,6 +61,11 @@ RUN git clone https://github.com/FFmpeg/FFmpeg.git; \
 RUN echo "export LC_ALL="C"" >> ~/.bashrc
 
 # ROS Packages
+# Most packages are suites, but some should only be installed individually because
+# of either the magnitude of their dependencies or the size of other nodes in the suite.
+# Particularly, these should be kept individual installations:
+#   roslint
+#   
 RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
 RUN apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
 RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommends \
@@ -69,13 +74,11 @@ RUN apt-get clean && apt-get update && apt-get install -y --no-install-recommend
      ros-indigo-roslint \
      ros-indigo-image-common \
      ros-indigo-diagnostics \
-     ros-indigo-diagnostic-aggregator \
-     ros-indigo-image-transport \
      ros-indigo-image-transport-plugins \
      ros-indigo-teleop-twist-joy \
-     ros-indigo-camera-info-manager \
      ros-indigo-razor-imu-9dof \
      ros-indigo-vision-opencv \
+     ros-indigo-geometry \
      python-rosinstall \
      python-catkin-tools 
 
